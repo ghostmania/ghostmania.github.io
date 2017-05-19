@@ -14,10 +14,13 @@ function intervalService($interval, usersMessagesConst) {
             "content": randomMsg.content
         });
         _this.audio.play();
-    };
+    }
+    function randomTime() {
+        return (Math.floor(Math.random() * 3)+3)*1000;
+    }
 
      this.start = function () {
-         _this.interval = $interval( simulateUsers,  3000);
+         _this.interval = $interval( simulateUsers,  randomTime());
      };
 
     this.stop = function () {

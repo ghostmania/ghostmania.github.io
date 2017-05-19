@@ -24,15 +24,14 @@ function config($stateProvider) {
 
 function getuser($state) {
     var user = localStorage.getItem('currentUser');
-    if (!user) { // use angular localstorage
-        console.log('No current user');
+    if (!user) {
         return $state.go('login')
     }
 }
 
 function checkUser($state) {
     var user = localStorage.getItem('currentUser');
-    if (user) { // use angular localstorage
+    if (user) {
         alert('Already loggen in');
         return $state.go('chat')
     }

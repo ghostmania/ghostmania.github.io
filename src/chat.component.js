@@ -17,9 +17,8 @@ module('myApp')
                     $scope.message = "";
                     intervalService.audio.play();
                 }
+                document.getElementById('message').focus();
             };
-
             intervalService.start();
-
         }
     });
