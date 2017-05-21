@@ -4,12 +4,11 @@ angular
 
 function chatScroll() {
     function link(scope, element) {
-        scope.$watchCollection('chatScroll', function (newValue) {
-            if (newValue)
-            {
-                $(element).parent().scrollTop($(element)[0].scrollHeight);
+        scope.$watch('chatScroll', function (newValue) {
+            if (newValue) {
+                $(element).parent().scrollTop($(element)[0].scrollHeight)
             }
-        });
+        }, true);
     }
     return {
         scope: {
