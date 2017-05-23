@@ -1,9 +1,15 @@
-angular
+(function() {
+    'use strict';
+
+    angular
     .module('myApp')
     .config(config);
 
-function config($stateProvider, $urlRouterProvider) {
+function config($stateProvider, $urlRouterProvider, $mdThemingProvider) {
     $urlRouterProvider.otherwise("/login");
+    $mdThemingProvider
+        .theme('blue', 'default')
+        .primaryPalette('blue');
     $stateProvider
         .state({
             name: 'login',
@@ -33,7 +39,9 @@ function getuser($state) {
 function checkUser($state) {
     var user = localStorage.getItem('currentUser');
     if (user) {
-        alert('Already loggen in');
+        alert('Already logged in');
         return $state.go('chat')
     }
 }
+
+})();
